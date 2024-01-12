@@ -1,5 +1,5 @@
 sonar.verbose=true
-sonar.organization=shashank
+sonar.organization=shashank-key
 sonar.projectKey=shashank-key_twittertrend
 sonar.projectName=twittertrend
 sonar.language=java
