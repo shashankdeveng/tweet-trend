@@ -20,8 +20,8 @@ environment {
             scannerHome = tool 'shashank-sonar-scanner'
         }
             steps{
-                withSonarQubeEnv('shashank-sonarqube-server')
-                sh "${scannerHome}/bin/sonar-scanner"
+            withSonarQubeEnv('shashank-sonarqube-server')
+              sh "${scannerHome}/bin/sonar-scanner"
             }
         }
     }
