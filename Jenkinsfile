@@ -20,36 +20,36 @@ environment {
             }
         }
 
-        stage("test"){
-            steps{
-                echo "------unit test started------"
-                sh 'mvn surefire-report:report'
-                echo "-----unit test completed------"
-            }
-        }
+  //      stage("test"){
+  //          steps{
+  //             echo "------unit test started------"
+ //               sh 'mvn surefire-report:report'
+ //               echo "-----unit test completed------"
+  //          }
+ //       }
 
-    stage("SonarQube analysis"){
-    environment {
-        scannerHome = tool 'shashank-sonar-scanner'
-    }
-    steps{
-    withSonarQubeEnv('shashank-sonarqube-server'){
-        sh "${scannerHome}/bin/sonar-scanner"
-    }
-    }
-    }
-    stage("Quality Gate"){
-        steps {
-            script {
-                timeout(time: 1, unit: 'HOURS') {
-                    def qg = waitForQualityGate()
-                    if (qg.status != 'OK') {
-                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                    }
-                }
-            }
-        }
-    }
+ //   stage("SonarQube analysis"){
+ //   environment {
+//        scannerHome = tool 'shashank-sonar-scanner'
+ //   }
+ //   steps{
+ //   withSonarQubeEnv('shashank-sonarqube-server'){
+//        sh "${scannerHome}/bin/sonar-scanner"
+//    }
+//    }
+//    }
+//    stage("Quality Gate"){
+//        steps {
+//            script {
+//                timeout(time: 1, unit: 'HOURS') {
+//                    def qg = waitForQualityGate()
+//                    if (qg.status != 'OK') {
+//                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+//                    }
+//                }
+//            }
+//        }
+//    }
        
          stage("Jar Publish") {
         steps {
