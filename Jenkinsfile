@@ -1,6 +1,6 @@
 def registry = 'https://goneshashank.jfrog.io'
 def imageName = 'goneshashank.jfrog.io/shashank-docker/ttrend'
-def version   = '2.1.2'
+def version   = '2.1.3'
 pipeline {
     agent {
         node {
